@@ -20,7 +20,7 @@ namespace GestoreEventi
             {
                 if (titolo == "")
                 {
-                    throw new ArgumentException("Il titolo non può essere vuoto.");
+                    throw new Exception("Il titolo non può essere vuoto.");
                 }
                 titolo = value;
             }
@@ -33,7 +33,7 @@ namespace GestoreEventi
             {
                 if (value < DateTime.Today)
                 {
-                    throw new ArgumentException("La data dell'evento non può essere nel passato.");
+                    throw new Exception("La data dell'evento non può essere nel passato.");
                 }
                 data = value;
             }
@@ -61,6 +61,57 @@ namespace GestoreEventi
         
         
         }
+
+        public void PrenotaPosti(int postiDaPrenotare )
+        {
+          if(data < DateTime.Today)
+            {
+                throw new Exception("Non è possibile prenotare posti per una data passata.");
+            }
+          if (postiDaPrenotare <= 0) 
+            {
+            
+             throw new Exception("il numero di posti da prenotare deve essere maggiore di 0");
+            
+            
+            }
+
+          if (postiDaPrenotare + postiDaPrenotare > massimaCapienza)
+            {
+                throw new Exception("non ci sono abbastanza posti liberi");
+            }
+
+            postiPrenotati += postiDaPrenotare;
+        }
+
+        public void DisdiciPosti(int postiDaDisdire)
+        {
+            if(data < DateTime.Today)
+            {
+                throw new Exception("non e' possibile disdire posti di un evento accaduto in passato");
+            }
+            if (postiDaDisdire <= 0)
+            {
+                throw new Exception("Il numero di posti da disdire deve essere un numero positivo.");
+            }
+            if (postiPrenotati - postiDaDisdire  < 0)
+            {
+                throw new Exception("Non ci sono abbastanza posti prenotati per disdire questo numero di posti.");
+            }
+            postiPrenotati -= postiDaDisdire;
+        }
+
+        public override string ToString()
+        {
+
+            string dataToString = $"{data.ToString("dd/MM/yyyy")} - {titolo}";
+            return dataToString;
+        }
+
+
+
+
+
 
 
 
