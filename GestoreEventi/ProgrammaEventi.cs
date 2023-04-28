@@ -26,19 +26,19 @@ namespace GestoreEventi
 
         public List<Evento> GetEventi()
         {
-            return eventi;
+            return this.eventi;
         }
 
         public void aggiungiEvento(Evento newEvento)
         {
-            eventi.Add(newEvento);
+            this.eventi.Add(newEvento);
         }
 
         public List<Evento> EventiInData(DateTime data)
         {
             List<Evento> eventiInData = new List<Evento>();
             
-            foreach (Evento eventoSingolo in eventi)
+            foreach (Evento eventoSingolo in this.eventi)
             {
 
                 if (eventoSingolo.GetDateTime == data)
@@ -66,25 +66,25 @@ namespace GestoreEventi
 
         public int NumeroEventi()
         {
-            return eventi.Count;
+            return this.eventi.Count;
         }
 
 
-        //public override string ToString()
-        //{
-        //    string str = base.ToString();
-        //     str += $"{Titolo} evento:\n";
+        public override string ToString()
+        {
+            string str = base.ToString();
+            str += $"{Titolo} evento:\n";
 
-        //    foreach (Evento eventoSingolo in eventi)
-        //    {
-        //        str += $"{eventoSingolo.GetDateTime.ToString()} - {eventoSingolo.GetTitolo}\n";
-        //    }
+            foreach (Evento eventoSingolo in this.eventi)
+            {
+                str += $"{eventoSingolo.GetDateTime.ToString()} - {eventoSingolo.GetTitolo}\n";
+            }
 
-        //    return str;
-        //}
+            return str;
+        }
 
 
 
-        
+
     }
 }

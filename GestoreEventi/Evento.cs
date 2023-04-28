@@ -105,9 +105,10 @@ namespace GestoreEventi
         public override string ToString()
         {
 
-            string dataToString = $"{data.ToString("dd/MM/yyyy")} - {titolo}";
-            
-            return dataToString;
+            string infoToString = $"{data.ToString("dd/MM/yyyy")} - {titolo}";
+            infoToString += $"{massimaCapienza}";
+            infoToString += $"{postiPrenotati}";
+            return infoToString;
         }
 
 
