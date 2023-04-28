@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -50,7 +51,7 @@ namespace GestoreEventi
             return eventiInData;
         }
        
-            public static string ConvertiListaInStringa(List<Evento> listaEventi)
+            public static string stampaListaEventi(List<Evento> listaEventi)
             {
                 string str = "";
                 foreach (Evento eventoSingolo in listaEventi)
@@ -66,7 +67,12 @@ namespace GestoreEventi
 
         public int NumeroEventi()
         {
-            return this.eventi.Count;
+           
+              return eventi.Count ;  
+
+           
+            
+              
         }
 
 
@@ -75,7 +81,7 @@ namespace GestoreEventi
             string str = base.ToString();
             str += $"{Titolo} evento:\n";
 
-            foreach (Evento eventoSingolo in this.eventi)
+            foreach (Evento eventoSingolo in eventi)
             {
                 str += $"{eventoSingolo.GetDateTime.ToString()} - {eventoSingolo.GetTitolo}\n";
             }
