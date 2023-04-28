@@ -76,7 +76,7 @@ namespace GestoreEventi
             
             }
 
-          if (postiDaPrenotare + postiDaPrenotare > massimaCapienza)
+          if (postiPrenotati + postiDaPrenotare > massimaCapienza)
             {
                 throw new Exception("non ci sono abbastanza posti liberi");
             }
@@ -105,6 +105,7 @@ namespace GestoreEventi
         {
 
             string dataToString = $"{data.ToString("dd/MM/yyyy")} - {titolo}";
+            
             return dataToString;
         }
 

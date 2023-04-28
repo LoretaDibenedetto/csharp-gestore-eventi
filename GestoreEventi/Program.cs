@@ -1,7 +1,7 @@
 ﻿
 
 
-// Chiediamo all'utente di inserire i dati del nuovo evento
+
 using GestoreEventi;
 
 Console.Write("Inserisci il titolo dell'evento: ");
@@ -31,14 +31,39 @@ while (sceltaUtente.ToLower() == "s")
 {
     Console.Write("Quanti posti vuoi prenotare? ");
     int postiDaPrenotare = int.Parse(Console.ReadLine());
-   
-    
+
         nuovoEvento.PrenotaPosti(postiDaPrenotare);
   
-
     Console.Write("Vuoi prenotare altri posti? (S/N): ");
     sceltaUtente = Console.ReadLine();
+
+
+
+Console.WriteLine("numero di posti prenotati:" +  nuovoEvento.GetPostiPrenotati);
+Console.WriteLine("numero di posti disponibili: " + nuovoEvento.GetMassimaCapienza);
+
+
+
+
+    Console.WriteLine("vuoi disdire dei posti? (s/n): ");
+    sceltaUtente = Console.ReadLine();
+    Console.Write("Quanti posti vuoi disdire? ");
+    int postiDaDisdire = int.Parse(Console.ReadLine());
+
+
+    nuovoEvento.DisdiciPosti(postiDaDisdire);
+
+
+    Console.Write("Vuoi disdire altri posti? (S/N): ");
+    sceltaUtente = Console.ReadLine();
+
+
+Console.WriteLine("numero di posti prenotati:" + nuovoEvento.GetPostiPrenotati);
+Console.WriteLine("numero di posti disponibili: " + nuovoEvento.GetMassimaCapienza);
 }
+
+
+
 
 
 
