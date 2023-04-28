@@ -50,6 +50,7 @@ namespace GestoreEventi
             get { return postiPrenotati; }
         }
 
+       
 
         public Evento(string titolo, DateTime data, int massimacapienza, int postiPrenotati = 0) 
         {
