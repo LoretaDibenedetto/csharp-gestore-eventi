@@ -9,8 +9,8 @@ namespace GestoreEventi
 {
     public class ProgrammaEventi
     {
-        string Titolo;
-        List<Evento> eventi;
+       private string Titolo;
+       private  List<Evento> eventi;
 
 
         public ProgrammaEventi( string Titolo)
@@ -70,15 +70,21 @@ namespace GestoreEventi
         }
 
 
-        public override string ToString()
-        {
-            string str = base.ToString();
-            str = "";
-            foreach (Evento eventoSingolo in eventi)
-            {
-                str += $"{eventoSingolo.GetDateTime} - {eventoSingolo.GetTitolo}\n";
-            }
-            return str;
-        }
+        //public override string ToString()
+        //{
+        //    string str = base.ToString();
+        //     str += $"{Titolo} evento:\n";
+
+        //    foreach (Evento eventoSingolo in eventi)
+        //    {
+        //        str += $"{eventoSingolo.GetDateTime.ToString()} - {eventoSingolo.GetTitolo}\n";
+        //    }
+
+        //    return str;
+        //}
+
+
+
+        
     }
 }
