@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,21 @@ namespace GestoreEventi
             this.prezzo = newprezzo;
         }
 
+
+        public string GetDataOraFormattata()
+        {
+            return GetDateTime.ToString("dd/MM/yyyy HH:mm");
+        }
+
+        public string GetPrezzoFormattato()
+        {
+            return prezzo.ToString("0.00") + " euro";
+        }
+
+        public override string ToString()
+        {
+            return $"{GetDataOraFormattata()} - {GetTitolo} - {relatore} - {GetPrezzoFormattato()}";
+        }
 
     }
 }
