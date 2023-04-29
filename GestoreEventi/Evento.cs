@@ -104,11 +104,14 @@ namespace GestoreEventi
 
         public override string ToString()
         {
+            string infoProduct =
+            $"Titolo: {this.titolo} \n" +
+           // $"Data: {this.data.ToString()} \n" +
+            $"massima capienza: {this.massimaCapienza} \n" +
+            $"posti prenotati: {this.postiPrenotati} \n";
+           
 
-            string dataToString = $"{data.ToString("dd/MM/yyyy")} - {titolo}";
-            dataToString += $"{massimaCapienza}";
-            dataToString += $"{postiPrenotati}";
-            return dataToString;
+            return infoProduct;
         }
 
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestoreEventi
 {
-    public class Conferenza:Evento
+    public class Conferenza : Evento
     {
 
         private string relatore;
@@ -28,7 +28,7 @@ namespace GestoreEventi
         {
             this.relatore = newrelatore;
         }
-        
+
 
         public double GetPrezzo()
         {
@@ -53,8 +53,17 @@ namespace GestoreEventi
 
         public override string ToString()
         {
-            return $"{GetDataOraFormattata()} - {GetTitolo} - {relatore} - {GetPrezzoFormattato()}";
-        }
+            string infoProduct =
+            $"Nome del relatore: {this.relatore} \n" +
+            $"prezzo {this.prezzo} \n" +
+            $"data: {this.GetDataOraFormattata} \n" +
+            $"titolo: {this.GetTitolo} \n";
 
+          
+
+            return infoProduct;
+
+
+        }
     }
-}
+    }

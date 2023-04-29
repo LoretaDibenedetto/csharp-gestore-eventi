@@ -78,15 +78,16 @@ namespace GestoreEventi
 
         public override string ToString()
         {
-            string str = base.ToString();
-            str += $"{Titolo} evento:\n";
+            string stringa = base.ToString();
+            stringa += "Titolo: " + this.Titolo + "\n";
+           
 
-            foreach (Evento eventoSingolo in eventi)
+            foreach (Evento EventoSingolo in this.eventi)
             {
-                str += $"{eventoSingolo.GetDateTime.ToString()} - {eventoSingolo.GetTitolo}\n";
+                stringa += $"\t - {EventoSingolo.ToString()} \n";
             }
 
-            return str;
+            return stringa;
         }
 
 

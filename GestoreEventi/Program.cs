@@ -91,6 +91,12 @@ using System.Globalization;
 //List<Evento> eventiInData = programma.EventiInData(dataRicerca);
 //Console.WriteLine($"\nEventi in data {dataRicerca.ToShortDateString()}:");
 
+
+
+
+
+
+
 Console.WriteLine("---------bonus----------");
 ProgrammaEventi programma = new ProgrammaEventi("Programma Conferenze");
 Console.WriteLine("Inserisci il numero di conferenze che vuoi aggiungere:");
@@ -99,8 +105,19 @@ int numConferenze = int.Parse(Console.ReadLine());
 for (int i = 0; i < numConferenze; i++)
 {
     Console.WriteLine($"Conferenza {i + 1}");
+
+
+
+
+
+
     Console.Write("Inserisci la data e l'ora (formato gg/mm/aaaa hh:mm): ");
     DateTime dataOra = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+    if (dataOra != DateTime.Now)
+    {
+        Console.WriteLine("orario o data non adatta ");
+
+    }
 
 
 
@@ -135,9 +152,11 @@ for (int i = 0; i < numConferenze; i++)
     }
     try
     {
-        Conferenza conferenza = new Conferenza(relatore,prezzo, titolo, dataOra, capienzaMassima, postiDaPrenotare);
+        Conferenza conferenza = new Conferenza(relatore, prezzo, titolo, dataOra, capienzaMassima, postiDaPrenotare);
         programma.aggiungiEvento(conferenza);
         Console.WriteLine("Conferenza aggiunta al programma eventi!");
+        Console.WriteLine($"stampa lista eventi{programma}");
+        Console.WriteLine($"Numero di eventi nel programma: {programma.NumeroEventi()}");
     }
     catch (ArgumentException e)
     {
@@ -146,7 +165,6 @@ for (int i = 0; i < numConferenze; i++)
     }
 }
 
-Console.WriteLine($"Numero di eventi nel programma: {programma.NumeroEventi()}");
 
 
 
